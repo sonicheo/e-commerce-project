@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "variants",
+  "info": {
+    "name": "Variant",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "size": {
+      "type": "string",
+      "required": false
+    },
+    "color": {
+      "type": "string",
+      "required": true
+    },
+    "quantity": {
+      "required": true,
+      "type": "integer"
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "style": {
+      "type": "string",
+      "required": true
+    },
+    "images": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "product": {
+      "model": "product",
+      "via": "variants"
+    }
+  }
+}
